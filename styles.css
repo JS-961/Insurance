@@ -1,0 +1,286 @@
+/* Minimal QR landing page for insurance inquiries */
+
+:root {
+  --blue: #123f91;
+  --blue-dark: #0b275f;
+  --ink: #172033;
+  --muted: #657083;
+  --line: #e7ecf3;
+  --soft: #f7f9fc;
+  --white: #ffffff;
+  --shadow: 0 18px 45px rgba(16, 36, 94, 0.10);
+  --radius: 24px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(18, 63, 145, 0.10), transparent 34rem),
+    linear-gradient(180deg, #ffffff 0%, #f6f8fb 100%);
+  line-height: 1.6;
+}
+
+.page {
+  width: min(1080px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0;
+}
+
+.hero {
+  min-height: 64vh;
+  display: grid;
+  align-items: center;
+  padding: 42px 0 28px;
+}
+
+.hero-card {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(231, 236, 243, 0.9);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: clamp(28px, 5vw, 58px);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-card::after {
+  content: "";
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  right: -140px;
+  top: -140px;
+  background: rgba(18, 63, 145, 0.08);
+  border-radius: 50%;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: var(--blue);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.35rem, 7vw, 5rem);
+  line-height: 0.98;
+  letter-spacing: -0.06em;
+  color: var(--blue-dark);
+  max-width: 780px;
+}
+
+.lead {
+  max-width: 680px;
+  margin: 24px 0 0;
+  font-size: clamp(1.04rem, 2.3vw, 1.28rem);
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.btn {
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  padding: 13px 18px;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  font-weight: 800;
+  transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: var(--blue);
+  color: white;
+  box-shadow: 0 14px 28px rgba(18, 63, 145, 0.22);
+}
+
+.btn-secondary {
+  color: var(--blue-dark);
+  background: #eef3ff;
+}
+
+.section {
+  padding: 34px 0;
+}
+
+.section-header {
+  margin-bottom: 18px;
+}
+
+.section-title {
+  margin: 0;
+  font-size: clamp(1.55rem, 3vw, 2.2rem);
+  letter-spacing: -0.035em;
+  color: var(--blue-dark);
+}
+
+.section-subtitle {
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+
+.logos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.logo-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 24px;
+  min-height: 150px;
+  display: grid;
+  place-items: center;
+}
+
+.logo-card img {
+  max-width: 100%;
+  max-height: 92px;
+  object-fit: contain;
+}
+
+.logo-card.burgan {
+  background: #161616;
+}
+
+.contacts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.contact-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 24px;
+  box-shadow: 0 12px 32px rgba(16, 36, 94, 0.07);
+}
+
+.contact-card h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: var(--blue-dark);
+}
+
+.role {
+  margin: 2px 0 18px;
+  color: var(--muted);
+}
+
+.contact-list {
+  display: grid;
+  gap: 10px;
+}
+
+.contact-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+}
+
+.contact-row span {
+  color: var(--muted);
+}
+
+.contact-row a {
+  color: var(--ink);
+  font-weight: 750;
+  text-decoration: none;
+  word-break: break-word;
+  text-align: right;
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.note {
+  background: #eef3ff;
+  color: #263c69;
+  border: 1px solid #dce7ff;
+  border-radius: 18px;
+  padding: 16px 18px;
+  margin-top: 16px;
+}
+
+footer {
+  color: var(--muted);
+  font-size: 0.92rem;
+  padding: 22px 0 8px;
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .page {
+    width: min(100% - 22px, 1080px);
+    padding: 14px 0 24px;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 16px 0 20px;
+  }
+
+  .hero-card {
+    padding: 28px 20px;
+    border-radius: 22px;
+  }
+
+  .actions,
+  .contact-actions {
+    display: grid;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .logos,
+  .contacts {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-row {
+    display: grid;
+    gap: 2px;
+  }
+
+  .contact-row a {
+    text-align: left;
+  }
+}
