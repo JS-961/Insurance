@@ -157,6 +157,7 @@
     function updatePhoneDisplay(language) {
       document.querySelectorAll("[data-phone]").forEach((element) => {
         const rawPhone = element.getAttribute("data-phone");
+        element.setAttribute("dir", "ltr");
         element.textContent = language === "ar" ? toArabicDigits(rawPhone) : rawPhone;
       });
     }
