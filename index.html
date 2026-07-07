@@ -64,7 +64,7 @@
           <div class="contact-list">
             <div class="contact-row">
               <span data-i18n="phone">Phone</span>
-              <a class="phone-link" data-phone="+961 71 262 650" href="tel:+96171262650">+961 71 262 650</a>
+              <a class="phone-link" data-phone="+961 71 262 650" data-phone-ar="+٩٦١ ٧١ ٢٦٢ ٦٥٠" href="tel:+96171262650">+961 71 262 650</a>
             </div>
             <div class="contact-row">
               <span data-i18n="whatsapp">WhatsApp</span>
@@ -85,7 +85,7 @@
           <div class="contact-list">
             <div class="contact-row">
               <span data-i18n="phone">Phone</span>
-              <a class="phone-link" data-phone="+961 70 782 373" href="tel:+96170782373">+961 70 782 373</a>
+              <a class="phone-link" data-phone="+961 70 782 373" data-phone-ar="+٩٦١ ٧٠ ٧٨٢ ٣٧٣" href="tel:+96170782373">+961 70 782 373</a>
             </div>
             <div class="contact-row">
               <span data-i18n="whatsapp">WhatsApp</span>
@@ -128,7 +128,7 @@
       },
       ar: {
         eyebrow: "خدمات التأمين",
-        title: "جميع أنواع التأمين متوفّرة.",
+        title: "جميع أنواع التأمين متوفرة.",
         lead: "للاستفسار عن التأمين الشخصي، تأمين المركبات، التأمين الطبي، العقاري، السفر، وتأمين الأعمال، تواصل مع أحد الممثلين أدناه للحصول على التفاصيل وعروض الأسعار.",
         contactUs: "تواصل معنا",
         viewCompanies: "عرض الشركات",
@@ -149,16 +149,16 @@
     const yearElement = document.getElementById("year");
     const toggle = document.getElementById("languageToggle");
 
-    function toArabicDigits(value) {
-      const map = {"0":"٠","1":"١","2":"٢","3":"٣","4":"٤","5":"٥","6":"٦","7":"٧","8":"٨","9":"٩"};
-      return value.replace(/[0-9]/g, (digit) => map[digit]);
-    }
-
     function updatePhoneDisplay(language) {
       document.querySelectorAll("[data-phone]").forEach((element) => {
         const rawPhone = element.getAttribute("data-phone");
+        const arabicPhone = element.getAttribute("data-phone-ar");
         element.setAttribute("dir", "ltr");
-        element.textContent = language === "ar" ? toArabicDigits(rawPhone) : rawPhone;
+        element.style.direction = "ltr";
+        element.style.unicodeBidi = "bidi-override";
+
+        // LTR override markers keep the + attached to 961 even inside the Arabic/RTL layout.
+        element.textContent = language === "ar" ? `‭${arabicPhone}‬` : rawPhone;
       });
     }
 
