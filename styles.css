@@ -97,7 +97,7 @@ body {
 h1 {
   margin: 0;
   font-size: clamp(2.35rem, 7vw, 5rem);
-  line-height: 0.98;
+  line-height: 1.02;
   letter-spacing: -0.06em;
   color: var(--blue-dark);
   max-width: 780px;
@@ -263,9 +263,19 @@ html[dir="rtl"] body {
   font-family: Tahoma, Arial, sans-serif;
 }
 
+.phone-link {
+  direction: ltr;
+  unicode-bidi: isolate;
+  display: inline-block;
+}
+
 html[dir="rtl"] h1,
 html[dir="rtl"] .section-title {
   letter-spacing: -0.025em;
+}
+
+html[dir="rtl"] h1 {
+  line-height: 1.16;
 }
 
 html[dir="rtl"] .lead {
@@ -277,28 +287,7 @@ html[dir="rtl"] .contact-row a {
 }
 
 @media (max-width: 760px) {
-  .language-toggle {
-  position: fixed;
-  top: 22px;
-  right: 22px;
-  z-index: 10;
-  border: 1px solid rgba(18, 63, 145, 0.18);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.92);
-  color: var(--blue-dark);
-  box-shadow: 0 10px 26px rgba(16, 36, 94, 0.10);
-  padding: 10px 14px;
-  min-height: 42px;
-  font: inherit;
-  font-weight: 800;
-  cursor: pointer;
-}
-
-.language-toggle:hover {
-  transform: translateY(-1px);
-}
-
-.page {
+  .page {
     width: min(100% - 22px, 1080px);
     padding: 14px 0 24px;
   }
