@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,27 +8,31 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <button class="language-toggle" type="button" id="languageToggle" aria-label="Switch language">
+    العربية
+  </button>
+
   <main class="page">
     <section class="hero" aria-labelledby="main-title">
       <div class="hero-card">
-        <p class="eyebrow">Insurance Services</p>
-        <h1 id="main-title">All types of insurance available.</h1>
-        <p class="lead">
+        <p class="eyebrow" data-i18n="eyebrow">Insurance Services</p>
+        <h1 id="main-title" data-i18n="title">All types of insurance available.</h1>
+        <p class="lead" data-i18n="lead">
           For personal, vehicle, medical, property, travel, and business insurance inquiries,
           contact one of the representatives below for details and quotations.
         </p>
 
         <div class="actions" aria-label="Primary contact actions">
-          <a class="btn btn-primary" href="#contacts">Contact Us</a>
-          <a class="btn btn-secondary" href="#companies">View Companies</a>
+          <a class="btn btn-primary" href="#contacts" data-i18n="contactUs">Contact Us</a>
+          <a class="btn btn-secondary" href="#companies" data-i18n="viewCompanies">View Companies</a>
         </div>
       </div>
     </section>
 
     <section id="companies" class="section" aria-labelledby="companies-title">
       <div class="section-header">
-        <h2 id="companies-title" class="section-title">Associated insurance companies</h2>
-        <p class="section-subtitle">Current providers and partners.</p>
+        <h2 id="companies-title" class="section-title" data-i18n="companiesTitle">Associated insurance companies</h2>
+        <p class="section-subtitle" data-i18n="companiesSubtitle">Current providers and partners.</p>
       </div>
 
       <div class="logos">
@@ -48,66 +52,128 @@
 
     <section id="contacts" class="section" aria-labelledby="contacts-title">
       <div class="section-header">
-        <h2 id="contacts-title" class="section-title">For inquiries, contact</h2>
-        <p class="section-subtitle">Available by phone or WhatsApp for insurance inquiries and quotations.</p>
+        <h2 id="contacts-title" class="section-title" data-i18n="contactsTitle">For inquiries, contact</h2>
+        <p class="section-subtitle" data-i18n="contactsSubtitle">Available by phone or WhatsApp for insurance inquiries and quotations.</p>
       </div>
 
       <div class="contacts">
         <article class="contact-card">
           <h3>Mohamad Saad</h3>
-          <p class="role">Insurance Representative</p>
+          <p class="role" data-i18n="representative">Insurance Representative</p>
 
           <div class="contact-list">
             <div class="contact-row">
-              <span>Phone</span>
+              <span data-i18n="phone">Phone</span>
               <a href="tel:+96171262650">+961 71 262 650</a>
             </div>
             <div class="contact-row">
-              <span>WhatsApp</span>
-              <a href="https://wa.me/96171262650">Message on WhatsApp</a>
+              <span data-i18n="whatsapp">WhatsApp</span>
+              <a href="https://wa.me/96171262650" data-i18n="whatsappMessage">Message on WhatsApp</a>
             </div>
           </div>
 
           <div class="contact-actions">
-            <a class="btn btn-primary" href="tel:+96171262650">Call</a>
-            <a class="btn btn-secondary" href="https://wa.me/96171262650">WhatsApp</a>
+            <a class="btn btn-primary" href="tel:+96171262650" data-i18n="call">Call</a>
+            <a class="btn btn-secondary" href="https://wa.me/96171262650" data-i18n="whatsapp">WhatsApp</a>
           </div>
         </article>
 
         <article class="contact-card">
           <h3>Mohamad Berri</h3>
-          <p class="role">Insurance Representative</p>
+          <p class="role" data-i18n="representative">Insurance Representative</p>
 
           <div class="contact-list">
             <div class="contact-row">
-              <span>Phone</span>
+              <span data-i18n="phone">Phone</span>
               <a href="tel:+96170782373">+961 70 782 373</a>
             </div>
             <div class="contact-row">
-              <span>WhatsApp</span>
-              <a href="https://wa.me/96170782373">Message on WhatsApp</a>
+              <span data-i18n="whatsapp">WhatsApp</span>
+              <a href="https://wa.me/96170782373" data-i18n="whatsappMessage">Message on WhatsApp</a>
             </div>
           </div>
 
           <div class="contact-actions">
-            <a class="btn btn-primary" href="tel:+96170782373">Call</a>
-            <a class="btn btn-secondary" href="https://wa.me/96170782373">WhatsApp</a>
+            <a class="btn btn-primary" href="tel:+96170782373" data-i18n="call">Call</a>
+            <a class="btn btn-secondary" href="https://wa.me/96170782373" data-i18n="whatsapp">WhatsApp</a>
           </div>
         </article>
       </div>
-
-      <p class="note">
-        This page is intentionally simple so it loads quickly when opened from a printed QR code.
-      </p>
     </section>
 
     <footer>
-      © <span id="year"></span> Insurance Inquiries. All rights reserved.
+      © <span id="year"></span> <span data-i18n="footer">Insurance Inquiries. All rights reserved.</span>
     </footer>
   </main>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    const translations = {
+      en: {
+        eyebrow: "Insurance Services",
+        title: "All types of insurance available.",
+        lead: "For personal, vehicle, medical, property, travel, and business insurance inquiries, contact one of the representatives below for details and quotations.",
+        contactUs: "Contact Us",
+        viewCompanies: "View Companies",
+        companiesTitle: "Associated insurance companies",
+        companiesSubtitle: "Current providers and partners.",
+        contactsTitle: "For inquiries, contact",
+        contactsSubtitle: "Available by phone or WhatsApp for insurance inquiries and quotations.",
+        representative: "Insurance Representative",
+        phone: "Phone",
+        whatsapp: "WhatsApp",
+        whatsappMessage: "Message on WhatsApp",
+        call: "Call",
+        footer: "Insurance Inquiries. All rights reserved.",
+        toggle: "العربية"
+      },
+      ar: {
+        eyebrow: "خدمات التأمين",
+        title: "جميع أنواع التأمين متوفّرة.",
+        lead: "للاستفسار عن التأمين الشخصي، تأمين المركبات، التأمين الطبي، العقاري، السفر، وتأمين الأعمال، تواصل مع أحد الممثلين أدناه للحصول على التفاصيل وعروض الأسعار.",
+        contactUs: "تواصل معنا",
+        viewCompanies: "عرض الشركات",
+        companiesTitle: "شركات التأمين المعتمدة",
+        companiesSubtitle: "الشركات المتعاونة حالياً.",
+        contactsTitle: "للاستفسارات، تواصل مع",
+        contactsSubtitle: "متاحان عبر الهاتف أو واتساب للاستفسارات وعروض الأسعار.",
+        representative: "ممثل تأمين",
+        phone: "الهاتف",
+        whatsapp: "واتساب",
+        whatsappMessage: "تواصل عبر واتساب",
+        call: "اتصال",
+        footer: "استفسارات التأمين. جميع الحقوق محفوظة.",
+        toggle: "English"
+      }
+    };
+
+    const yearElement = document.getElementById("year");
+    const toggle = document.getElementById("languageToggle");
+
+    function setLanguage(language) {
+      const dictionary = translations[language] || translations.en;
+      document.documentElement.lang = language;
+      document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+
+      document.querySelectorAll("[data-i18n]").forEach((element) => {
+        const key = element.getAttribute("data-i18n");
+        if (dictionary[key]) {
+          element.textContent = dictionary[key];
+        }
+      });
+
+      toggle.textContent = dictionary.toggle;
+      localStorage.setItem("insurancePageLanguage", language);
+    }
+
+    yearElement.textContent = new Date().getFullYear();
+
+    const savedLanguage = localStorage.getItem("insurancePageLanguage") || "en";
+    setLanguage(savedLanguage);
+
+    toggle.addEventListener("click", () => {
+      const nextLanguage = document.documentElement.lang === "ar" ? "en" : "ar";
+      setLanguage(nextLanguage);
+    });
   </script>
 </body>
 </html>
